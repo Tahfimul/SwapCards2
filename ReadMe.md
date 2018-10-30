@@ -4,7 +4,7 @@
 Flash Card app that allows user to create their own question and answer for question.
 
 ### App Walk-though
-<img src="https://media.giphy.com/media/3kxa3GE9osX8zppXHt/giphy.gif" width=200><br>
+<img src="https://media.giphy.com/media/9Pmfw1jzemN9WWVthV/giphy.gif" width=200><br>
 
 ## Required
 - [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
@@ -14,8 +14,8 @@ Flash Card app that allows user to create their own question and answer for ques
 - [x] Push your progress to GitHub!
 
 ## Optional
-- [ ] User can edit a card
-- [ ] An error message is shown if the user doesn't enter both a Question and an Answer
-- [ ] A notification is shown if the card was created successfully
-- [ ] User can also enter multiple choice answers when creating a card
-- [ ] App is further styled and customized!
+- [x] User can edit a card
+- [x] An error message is shown if the user doesn't enter both a Question and an Answer
+- [x] A notification is shown if the card was created successfully
+- [x] User can also enter multiple choice answers when creating a card
+- [x] App is further styled and customized!
