@@ -2,53 +2,140 @@
 <RelativeLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="match_parent"
+		android:background="@color/colorYellow"
+		android:id="@+id/addCardView">
+			
+			<EditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/question_prompt"
+					android:background="@color/colorWhite"
+					android:textSize="25sp"
+					android:textColor="@color/colorLOrange"
+					android:textAlignment="center"
+					android:padding="10dp"
+					android:layout_marginTop="20dp"
+					android:layout_marginStart="20dp"
+					android:layout_marginEnd="20dp"
+					android:layout_centerHorizontal="true"
+					android:hint="Enter your question here"
+					android:textColorHint="@color/colorLOrange"
+					android:maxLines="10"/>
+			
+			<EditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/answer_prompt_correct"
+					android:textSize="25sp"
+					android:textAlignment="center"
+					android:background="@color/colorWhite"
+					android:layout_below="@id/question_prompt"
+					android:padding="10dp"
+					android:layout_marginTop="10dp"
+					android:layout_marginStart="20dp"
+					android:layout_marginEnd="20dp"
+					android:layout_centerHorizontal="true"
+					android:hint="Enter your correct answer here"
+					android:textColorHint="@color/colorLOrange"
+					android:maxLines="10"/>
+			
+			<EditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/answer_prompt"
+					android:textSize="25sp"
+					android:textAlignment="center"
+					android:background="@color/colorWhite"
+					android:layout_below="@id/answer_prompt_correct"
+					android:padding="10dp"
+					android:layout_marginTop="10dp"
+					android:layout_marginStart="20dp"
+					android:layout_marginEnd="20dp"
+					android:layout_centerHorizontal="true"
+					android:hint="Enter your answer here"
+					android:textColorHint="@color/colorLOrange"
+					android:maxLines="10"/>
+			
+			<EditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/answer_prompt1"
+					android:textSize="25sp"
+					android:textAlignment="center"
+					android:background="@color/colorWhite"
+					android:layout_below="@id/answer_prompt"
+					android:padding="10dp"
+					android:layout_marginTop="10dp"
+					android:layout_marginStart="20dp"
+					android:layout_marginEnd="20dp"
+					android:layout_centerHorizontal="true"
+					android:hint="Enter another answer here"
+					android:textColorHint="@color/colorLOrange"
+					android:maxLines="10"/>
+			
+			<EditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/answer_prompt2"
+					android:textSize="25sp"
+					android:textAlignment="center"
+					android:background="@color/colorWhite"
+					android:layout_below="@id/answer_prompt1"
+					android:padding="10dp"
+					android:layout_marginTop="10dp"
+					android:layout_marginStart="20dp"
+					android:layout_marginEnd="20dp"
+					android:layout_centerHorizontal="true"
+					android:hint="Enter another answer here"
+					android:textColorHint="@color/colorLOrange"
+					android:maxLines="10"/>
+			
+			<EditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/answer_prompt3"
+					android:textSize="25sp"
+					android:textAlignment="center"
+					android:background="@color/colorWhite"
+					android:layout_below="@id/answer_prompt2"
+					android:padding="10dp"
+					android:layout_marginTop="10dp"
+					android:layout_marginStart="20dp"
+					android:layout_marginEnd="20dp"
+					android:layout_centerHorizontal="true"
+					android:hint="Enter another answer here"
+					android:textColorHint="@color/colorLOrange"
+					android:maxLines="10"/>
 	
-	<EditText
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:id="@+id/question_prompt"
-			android:textSize="20sp"
-			android:paddingBottom="20dp"
-			android:layout_margin="20dp"
-			android:layout_centerHorizontal="true"
-			android:hint="Enter your question here"/>
-	
-	<EditText
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:id="@+id/answer_prompt"
-			android:textSize="20sp"
-			android:layout_below="@id/question_prompt"
-			android:paddingBottom="20dp"
-			android:layout_marginTop="20dp"
-			android:layout_marginStart="20dp"
-			android:layout_marginEnd="20dp"
-			android:layout_centerHorizontal="true"
-			android:hint="Enter your answer here"/>
 	
 	<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="horizontal"
 			android:layout_alignParentBottom="true"
-			android:layout_marginBottom="20dp">
+			android:layout_margin="20dp">
 		
 		
 		<ImageView
 				android:layout_width="0dp"
-				android:layout_height="70dp"
+				android:layout_height="50dp"
+				android:padding="5dp"
 				android:id="@+id/save_btn"
 				android:src="@drawable/ic_save"
 				android:layout_weight="1"
+				android:background="@color/colorDarkYellow"
+				android:layout_marginEnd="40dp"
 				/>
 		
 		<ImageView
 				android:layout_width="0dp"
-				android:layout_height="70dp"
+				android:layout_height="50dp"
+				android:padding="5dp"
 				android:id="@+id/btn_close"
 				android:src="@drawable/ic_close"
-				android:layout_weight="1"/>
+				android:layout_weight="1"
+				android:background="@color/colorDarkYellow"/>
 		
 	</LinearLayout>
 

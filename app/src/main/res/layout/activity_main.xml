@@ -5,13 +5,16 @@
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		tools:context=".MainActivity">
+		tools:context=".MainActivity"
+		android:id="@+id/activityMain"
+		android:background="@color/colorYellow">
 	
 	<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="Who is the 44th president of the United States?"
 			android:textSize="40sp"
+			android:textColor="@color/colorLOrange"
 			android:id="@+id/output"
 			android:layout_centerHorizontal="true"
 			android:layout_marginTop="20dp"
@@ -19,15 +22,90 @@
 			android:layout_marginEnd="20dp"
 			android:textAlignment="center"
 			/>
-	
-	<ImageView
-			android:layout_width="100dp"
-			android:layout_height="100dp"
-			android:src="@drawable/ic_add"
-			android:id="@+id/add_btn"
-			android:layout_alignParentBottom="true"
-			android:layout_alignRight="@id/output"
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:layout_below="@id/output"
+			android:layout_marginTop="20dp"
+			android:layout_marginStart="20dp"
 			android:layout_marginEnd="20dp"
-			android:layout_marginBottom="20dp"/>
+			android:id="@+id/choices">
+		<Button
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="10dp"
+				android:text="Barack Obama"
+				android:textSize="40sp"
+				android:textColor="@color/colorWhite"
+				android:id="@+id/a"
+				android:textAlignment="center"
+				android:background="@color/colorDarkYellow"
+				/>
+		<Button
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="10dp"
+				android:text="Donald Trump"
+				android:textSize="40sp"
+				android:textColor="@color/colorWhite"
+				android:id="@+id/a1"
+				android:textAlignment="center"
+				android:background="@color/colorDarkYellow"
+				/>
+		<Button
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="10dp"
+				android:text="Bill Gates"
+				android:textSize="40sp"
+				android:textColor="@color/colorWhite"
+				android:id="@+id/a2"
+				android:textAlignment="center"
+				android:background="@color/colorDarkYellow"
+				/>
+		<Button
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="George W. Bush"
+				android:textSize="40sp"
+				android:textColor="@color/colorWhite"
+				android:id="@+id/a3"
+				android:textAlignment="center"
+				android:background="@color/colorDarkYellow"
+				/>
+		
+	</LinearLayout>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_alignParentBottom="true"
+			android:layout_margin="20dp"
+			>
+		
+		<ImageView
+				android:layout_width="0dp"
+				android:layout_height="50dp"
+				android:layout_weight="1"
+				android:src="@drawable/ic_edit"
+				android:id="@+id/edit_btn"
+				android:background="@color/colorDarkYellow"
+				android:layout_marginEnd="40dp"
+				android:padding="5dp"
+				/>
+		
+		<ImageView
+				android:layout_width="0dp"
+				android:layout_height="50dp"
+				android:layout_weight="1"
+				android:src="@drawable/ic_add"
+				android:id="@+id/add_btn"
+				android:background="@color/colorDarkYellow"
+				android:padding="5dp"/>
+			
+	</LinearLayout>
+
 
 </RelativeLayout>
