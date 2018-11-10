@@ -1,5 +1,6 @@
 package com.example.nycgtrcode.codepathlab2;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -90,14 +91,15 @@ public class AddCardActivity extends AppCompatActivity {
 
         System.out.println(aC + "\t:aC Data");
 
-        Intent mainActivity = new Intent(AddCardActivity.this, MainActivity.class);
+        Intent mainActivity = new Intent();
         mainActivity.putExtra("q", q);
         mainActivity.putExtra("aCorrect", aC);
         mainActivity.putExtra("a", A);
         mainActivity.putExtra("a1", A1);
         mainActivity.putExtra("a2", A2);
         mainActivity.putExtra("a3", A3);
-        startActivity(mainActivity);
+        setResult(Activity.RESULT_OK, mainActivity);
+        finish();
     }
 
     private void closeBtnClick() {

@@ -1,6 +1,8 @@
 package com.example.nycgtrcode.codepathlab2;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +18,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView output, A, A1, A2, A3;
     boolean showQuestion=true, showAnswer=false;
     String q, aCorrect ,a, a1, a2, a3;
+
+    //DB
+    FlashcardDatabase flashcardDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,13 +32,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         A1 = findViewById(R.id.a1);
         A2 = findViewById(R.id.a2);
         A3 = findViewById(R.id.a3);
-        checkIntentData();
+        //DB
+        flashcardDatabase = new FlashcardDatabase(getApplicationContext());
+
+        flashcardDatabase.getAllCards();
+
+        //checkIntentData();
+
+        q = "Who is the 44th president of the United States?";
+        aCorrect = "Barack Obama";
+        a = "Barack Obama";
+        a1 = "George W. Bush";
+        a2 = "Bill Gates";
+        a3 = "None";
+
         editBtnClick();
         addBtnClick();
         output.setText(q);
         setOutputTextViewClick();
         setChoices();
         setOnClickChoices();
+
     }
     private void checkIntentData() {
         Intent i = getIntent();
@@ -82,9 +101,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 Intent addCardActivity = new Intent(MainActivity.this, AddCardActivity.class);
-                startActivity(addCardActivity);
+                startActivityForResult(addCardActivity, 100);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100)
+            if (resultCode == Activity.RESULT_OK)
+            {
+                q= data.getStringExtra("q");
+                aCorrect = data.getStringExtra("aCorrect");
+                a=data.getStringExtra("a");
+                a1 = data.getStringExtra("a1");
+                a2 = data.getStringExtra("a2");
+                a3 = data.getStringExtra("a3");
+                Snackbar.make(findViewById(R.id.activityMain), "New Card Created", Snackbar.LENGTH_LONG).show();
+
+                flashcardDatabase.insertCard(new Flashcard(q, aCorrect, a, a1));
+            }
+
     }
 
     void setOutputTextViewClick() {
