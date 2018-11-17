@@ -12,12 +12,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView addBtn, editBtn;
+    ImageView addBtn, editBtn, nextBtn;
     TextView output, A, A1, A2, A3;
     boolean showQuestion=true, showAnswer=false;
     String q, aCorrect ,a, a1, a2, a3;
+
+
+    int index = 0;
+
+    List<Flashcard> allCards;
 
     //DB
     FlashcardDatabase flashcardDatabase;
@@ -27,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         addBtn = findViewById(R.id.add_btn);
         editBtn = findViewById(R.id.edit_btn);
+        nextBtn = findViewById(R.id.btn_next);
         output = findViewById(R.id.output);
         A = findViewById(R.id.a);
         A1 = findViewById(R.id.a1);
@@ -35,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //DB
         flashcardDatabase = new FlashcardDatabase(getApplicationContext());
 
-        flashcardDatabase.getAllCards();
+        allCards = flashcardDatabase.getAllCards();
 
         //checkIntentData();
 
@@ -48,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         editBtnClick();
         addBtnClick();
+        nextBtnClick();
         output.setText(q);
         setOutputTextViewClick();
         setChoices();
@@ -106,6 +115,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    private void nextBtnClick()
+    {
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                q = allCards.get(index).getQuestion();
+                aCorrect = allCards.get(index).getAnswer();
+                a = allCards.get(index).getChoiceA();
+                a1 = allCards.get(index).getChoiceA1();
+                a2 = allCards.get(index).getChoiceA2();
+                a3 = allCards.get(index).getChoiceA3();
+                output.setText(q);
+                setChoices();
+                setOnClickChoices();
+                index++;
+                if (index > allCards.size()-1)
+                    index=0;
+
+            }
+        });
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -119,8 +150,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 a2 = data.getStringExtra("a2");
                 a3 = data.getStringExtra("a3");
                 Snackbar.make(findViewById(R.id.activityMain), "New Card Created", Snackbar.LENGTH_LONG).show();
+                output.setText(q);
+                setOutputTextViewClick();
+                setChoices();
+                setOnClickChoices();
 
-                flashcardDatabase.insertCard(new Flashcard(q, aCorrect, a, a1));
+                flashcardDatabase.insertCard(new Flashcard(q, aCorrect, a, a1, a2, a3));
             }
 
     }
@@ -133,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 {
                     showQuestion = false;
                     showAnswer = true;
-                    output.setText(a);
+                    output.setText(aCorrect);
                 }
                 else
                 {

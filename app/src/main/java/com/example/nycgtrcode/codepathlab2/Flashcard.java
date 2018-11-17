@@ -19,12 +19,14 @@ public class Flashcard {
         this.answer = answer;
     }
 
-    Flashcard(String question, String answer, String a, String a1) {
+    Flashcard(String question, String answer, String a, String a1, String a2, String a3) {
         this.uuid = UUID.randomUUID().toString();
         this.question = question;
         this.answer = answer;
         this.a = a;
         this.a1 = a1;
+        this.a2 = a2;
+        this.a3 = a3;
     }
 
     @PrimaryKey
@@ -78,6 +80,42 @@ public class Flashcard {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public String getChoiceA(){ return  a;}
+
+    public void setChoiceA(String a){
+        this.a = a;
+    }
+
+    public String getChoiceA1()
+    {
+        return a1;
+    }
+
+    public void setChoiceA1(String a1)
+    {
+        this.a1 = a1;
+    }
+
+    public String getChoiceA2()
+    {
+        return a2;
+    }
+
+    public void setChoiceA2(String a2)
+    {
+        this.a2 = a2;
+    }
+
+    public String getChoiceA3()
+    {
+        return a3;
+    }
+
+    public void setChoiceA3(String a3)
+    {
+        this.a3 = a3;
     }
 
     @Nullable
